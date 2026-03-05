@@ -6,7 +6,7 @@
 
 /* appearance */
 static unsigned int borderpx  = 2;
-static unsigned int snap      = 1;
+static unsigned int snap      = 5;
 static unsigned int gappih    = 0;
 static unsigned int gappiv    = 0;
 static unsigned int gappoh    = 0;
@@ -15,7 +15,7 @@ static int swallowfloating    = 0;
 static int smartgaps          = 0;
 static int showbar            = 1;
 static int topbar             = 1;
-static char *fonts[]          = { "Mononoki Nerd Font:size=15" };
+static char *fonts[]          = { "Mononoki Nerd Font:size=17" };
 static char normbgcolor[]     = "#222222";
 static char normbordercolor[] = "#444444";
 static char normfgcolor[]     = "#bbbbbb";
@@ -129,10 +129,10 @@ static const Key keys[] = {
   {MODKEY|ShiftMask, XK_k, movestack, {.i = -1 } },
 
 	/* лейауты */
-	{ MODKEY,            XK_Tab,        view,           {0} },
-	{ MODKEY,            XK_space,      zoom,           {0} },
-	{ MODKEY|ShiftMask,  XK_space,      togglefloating, {0} },
-	{ MODKEY,            XK_f,          togglefullscr,  {0} },
+	/* { MODKEY,            XK_Tab,        view,           {0} },
+	 { MODKEY,            XK_space,      zoom,           {0} }, */
+	{ MODKEY,            XK_space,      togglefloating, {0} },
+	{ MODKEY,            XK_Tab,          togglefullscr,  {0} },
 
 	/* гапы */
 	{ MODKEY,            XK_a,          togglegaps,     {0} },
@@ -144,7 +144,7 @@ static const Key keys[] = {
 	{ MODKEY,            XK_b,          togglebar,      {0} },
 
 	/* скриншот как в hyprland (ALT+SHIFT+S) */
-	{ MODKEY|ShiftMask,  XK_s,          spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
+	{ MODKEY,        XK_x,          spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
 
 	/* громкость */
 	{ 0, XF86XK_AudioMute,         spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") },
