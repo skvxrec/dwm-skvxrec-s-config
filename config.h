@@ -1,11 +1,11 @@
 /* See LICENSE file for copyright and license details. */
 /* Constants */
-#define TERMINAL "kitty"
-#define TERMCLASS "kitty"
+#define TERMINAL "alacritty"
+#define TERMCLASS "alacritty"
 #define BROWSER "zen-browser"
 
 /* appearance */
-static unsigned int borderpx  = 2;
+static unsigned int borderpx  = 3;
 static unsigned int snap      = 5;
 static unsigned int gappih    = 0;
 static unsigned int gappiv    = 0;
@@ -74,8 +74,8 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY, tag,        {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY, toggletag,  {.ui = 1 << TAG} },
 #define STACKKEYS(MOD,ACTION) \
-	{ MOD, XK_h, ACTION##stack, {.i = INC(+1) } }, \
-	{ MOD, XK_l, ACTION##stack, {.i = INC(-1) } },
+	{ MOD, XK_j, ACTION##stack, {.i = INC(+1) } }, \
+	{ MOD, XK_k, ACTION##stack, {.i = INC(-1) } },
 
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 static const char *termcmd[] = { TERMINAL, NULL };
@@ -86,7 +86,7 @@ static const char *termcmd[] = { TERMINAL, NULL };
 static const Key keys[] = {
 	/* modifier          key            function        argument */
 	STACKKEYS(MODKEY,                   focus)
-	STACKKEYS(MODKEY|ShiftMask,         push)
+	// STACKKEYS(MODKEY|ShiftMask,         push)
 
 	/* теги 1-9 как в hyprland */
 	TAGKEYS(XK_1, 0)
@@ -100,6 +100,7 @@ static const Key keys[] = {
 	TAGKEYS(XK_9, 8)
 	{ MODKEY,            XK_0,          view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,  XK_0,          tag,            {.ui = ~0 } },
+	{ MODKEY, XK_i, setlayout, {.v = &layouts[2]} },
 
 	/* основные биндинги как в hyprland */
 	{ MODKEY,            XK_Return,     spawn,          {.v = termcmd } },
@@ -112,11 +113,6 @@ static const Key keys[] = {
 	{ MODKEY,            XK_s,          spawn,          {.v = (const char*[]){ "steam", NULL } } },
 	{ MODKEY,            XK_n,          spawn,          {.v = (const char*[]){ "dolphin", NULL } } },
 	{ MODKEY,            XK_l,          spawn,          {.v = (const char*[]){ "slock", NULL } } }, /* lock */
-
-	/* vim-движение фокуса (как в твоём hyprland) */
-	{ MODKEY,            XK_j,          focusstack,       {.i = -1} },
-	{ MODKEY,            XK_k,          focusstack,       {.i = +1} },
-	/* j/k уже в STACKKEYS выше */
 
 	/* перемещение между мониторами */
 	{ MODKEY,            XK_Left,       focusmon,       {.i = -1 } },
@@ -138,7 +134,7 @@ static const Key keys[] = {
 	{ MODKEY,            XK_a,          togglegaps,     {0} },
 	{ MODKEY|ShiftMask,  XK_a,          defaultgaps,    {0} },
 	{ MODKEY,            XK_z,          incrgaps,       {.i = +3 } },
-	{ MODKEY,            XK_x,          incrgaps,       {.i = -3 } },
+	// { MODKEY,            XK_x,          incrgaps,       {.i = -3 } },
 
 	/* бар */
 	{ MODKEY,            XK_b,          togglebar,      {0} },
