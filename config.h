@@ -2,7 +2,7 @@
 /* Constants */
 #define TERMINAL "alacritty"
 #define TERMCLASS "alacritty"
-#define BROWSER "zen-browser"
+#define BROWSER "firefox"
 
 /* appearance */
 static unsigned int borderpx  = 3;
@@ -15,13 +15,13 @@ static int swallowfloating    = 0;
 static int smartgaps          = 0;
 static int showbar            = 1;
 static int topbar             = 1;
-static char *fonts[]          = { "Mononoki Nerd Font:size=17" };
+static char *fonts[]          = { "JetBrainsMono Nerd Font Mono:Bold:size=18" };
 static char normbgcolor[]     = "#222222";
 static char normbordercolor[] = "#444444";
 static char normfgcolor[]     = "#bbbbbb";
 static char selfgcolor[]      = "#eeeeee";
-static char selbordercolor[]  = "#799ADB";
-static char selbgcolor[]      = "#799ADB";
+static char selbordercolor[]  = "#307a44";
+static char selbgcolor[]      = "#307a44";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -38,7 +38,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "󰖟 bsr", "󰆍 trm", " tg", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* class       instance   title           tags mask  isfloating  isterminal  noswallow  monitor */
@@ -56,10 +56,10 @@ static const int lockfullscreen = 1;
 #include "vanitygaps.c"
 #include "movestack.c"
 static const Layout layouts[] = {
-	{ "[]=",  tile },
-	{ "TTT",  bstack },
-	{ "[@]",  spiral },
-	{ "[\\]", dwindle },
+	{ "[tl]",  tile },
+	{ "[i3l]",  bstack },
+	{ "[sprl]",  spiral },
+	{ "[dw]", dwindle },
 	{ "[M]",  monocle },
 	{ "><>",  NULL },
 	{ NULL,   NULL },
@@ -143,9 +143,9 @@ static const Key keys[] = {
 	{ MODKEY,        XK_x,          spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
 
 	/* громкость */
-	{ 0, XF86XK_AudioMute,         spawn, SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle") },
-	{ 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%+") },
-	{ 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%-") },
+        { 0, XF86XK_AudioMute,         spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
+        { 0, XF86XK_AudioRaiseVolume,  spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +3%") },
+        { 0, XF86XK_AudioLowerVolume,  spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -3%") },
 };
 
 /*
