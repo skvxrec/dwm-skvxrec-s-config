@@ -20,8 +20,8 @@ static char normbgcolor[]     = "#222222";
 static char normbordercolor[] = "#444444";
 static char normfgcolor[]     = "#bbbbbb";
 static char selfgcolor[]      = "#eeeeee";
-static char selbordercolor[]  = "#307a44";
-static char selbgcolor[]      = "#307a44";
+static char selbordercolor[]  = "#689d6a";
+static char selbgcolor[]      = "#689d6a";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -38,7 +38,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "󰖟 bsr", "󰆍 trm", " tg", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "󰖟 bsr", "󰆍 trm", " tg", "󰒍 vpn", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* class       instance   title           tags mask  isfloating  isterminal  noswallow  monitor */
