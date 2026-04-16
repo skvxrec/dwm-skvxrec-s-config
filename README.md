@@ -1,1 +1,1 @@
-The private fork of Luke's dwm repository
+My fork of Luke's dwm repository
